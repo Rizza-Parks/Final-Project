@@ -1,8 +1,12 @@
 def print_board(board):
-    """Helper function to print the Tic Tac Toe board."""
-    for row in board:
+    """Helper function to print the Tic Tac Toe board in an artistic way."""
+    print("  0   1   2")
+    for i, row in enumerate(board):
+        print(i, end=" ")
         print(" | ".join(row))
-        print("-" * 9)
+        if i < 2:
+            print(" ---+---+--- ")
+    print()  
 
 def check_winner(board):
     """Check if there's a winner."""
@@ -27,7 +31,7 @@ def tic_tac_toe():
     board = [[" " for _ in range(3)] for _ in range(3)]
     current_player = "X"
     
-    for turn in range(9): 
+    for turn in range(9):  
         print_board(board)
         print(f"Player {current_player}, enter your move from 0 to 2 with a space between the numbers(row and column): ")
         
@@ -47,7 +51,7 @@ def tic_tac_toe():
             print(f"Player {current_player} wins!")
             return
         
-    
+        
         current_player = "O" if current_player == "X" else "X"
     
     print_board(board)
